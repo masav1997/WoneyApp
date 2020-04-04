@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, TouchableOpacity, Image, Dimensions, Text } from 'react-native';
 import { NeomorphBox } from 'react-native-neomorph-shadows';
 import Modal from 'react-native-modal';
@@ -14,7 +14,7 @@ export default class Header extends React.Component {
 	};
 
 	render() {
-		const { back, navigate, BackButton} = this.props;
+		const { back, navigate, BackButton } = this.props;
 		const viewStyle = {
 			flexDirection: 'row',
 			alignItems: 'center',
@@ -44,13 +44,32 @@ export default class Header extends React.Component {
 			<View>
 				<View style={viewStyle}>
 					<View style={{ flex: 1 }}>
-						<TouchableOpacity onPress={back}>
-							{BackButton}
-						</TouchableOpacity>
+						<TouchableOpacity onPress={back}>{BackButton}</TouchableOpacity>
 					</View>
-					<View style={{ flex: 1, alignItems: 'center' }}>
-						<Image source={require('../../assets/icons/logo.png')} style={{ width: 110, height: 19 }} />
-					</View>
+					<NeomorphBox
+						swapShadowLevel
+						style={{
+							shadowRadius: 6,
+							backgroundColor: 'transparent',
+							width: 64,
+							height: 10,
+							shadowOpacity: 0.3,
+							justifyContent: 'center',
+							alignItems: 'center',
+						}}
+					>
+						<Image
+							source={require('../../assets/icons/logo.png')}
+							style={{
+								width: 74,
+								height: 20,
+								shadowColor: '#000',
+								shadowOffset: { width: 1, height: 3 },
+								shadowOpacity: 0.3,
+								shadowRadius: 2.5,
+							}}
+						/>
+					</NeomorphBox>
 					<View style={{ flex: 1, alignItems: 'flex-end' }}>
 						<TouchableOpacity onPress={this.toggleModal}>
 							<NeomorphBox swapShadowLevel style={neomorphStyle}>
@@ -75,14 +94,14 @@ export default class Header extends React.Component {
 							paddingLeft: 30,
 							paddingRight: 30,
 							width: width / 1.5,
-							height: Platform.OS === 'android' ?  height+30 : height-30,
+							height: Platform.OS === 'android' ? height + 30 : height - height / 20,
 							backgroundColor: '#fff',
 							borderRadius: 7,
 							textAlign: 'right',
 							alignSelf: 'flex-end',
 							marginRight: -20,
 							marginBottom: -150,
-							paddingTop: 30,
+							paddingTop: '10%',
 						}}
 						swapShadowLevel
 					>

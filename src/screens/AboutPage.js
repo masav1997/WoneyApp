@@ -1,15 +1,9 @@
 import * as React from 'react';
-import {
-	View,
-	Dimensions,
-	SafeAreaView,
-	Image,
-	Text,
-	ScrollView,
-} from 'react-native';
+import { View, Dimensions, SafeAreaView, Image, Text, ScrollView } from 'react-native';
 import { NeomorphBox } from 'react-native-neomorph-shadows';
 import Header from '../components/Header';
 import BackButton from '../components/BackButton';
+import AboutBlock from '../components/AboutBlock';
 
 const { width, height } = Dimensions.get('window');
 
@@ -44,7 +38,7 @@ export default class AboutPage extends React.Component {
 						<Header
 							back={() => this.props.navigation.goBack()}
 							navigate={() => this.props.navigation.navigate('AboutPage')}
-							BackButton={<BackButton/>}
+							BackButton={<BackButton />}
 						/>
 						<NeomorphBox
 							darkShadowColor="rgba(55, 84, 170, 0.15)"
@@ -76,38 +70,20 @@ export default class AboutPage extends React.Component {
 										swapShadowLevel
 										style={{
 											shadowRadius: 6,
-											borderRadius: 50,
+											borderRadius: 64,
 											backgroundColor: '#fff',
-											width: 69,
-											height: 69,
-											paddingTop: 15,
+											width: 64,
+											height: 64,
 											shadowOpacity: 0.2,
 											shadowRadius: 7,
 											justifyContent: 'center',
 											alignItems: 'center',
 										}}
-										darkShadowColor="#939498"
 									>
-										<NeomorphBox
-											inner
-											style={{
-												width: 65,
-												height: 65,
-												shadowOffset: { width: 3, height: 3 },
-												shadowOpacity: 0.1,
-												shadowColor: '#939498',
-												shadowRadius: 4,
-												borderRadius: 50,
-												backgroundColor: 'white',
-												marginBottom: 15,
-												justifyContent: 'center',
-											}}
-										>
-											<Image
-												source={require('../../assets/icons/icon1.png')}
-												style={{ width: 38, height: 42, alignSelf: 'center' }}
-											/>
-										</NeomorphBox>
+										<Image
+											source={require('../../assets/icons/icon1.png')}
+											style={{ width: 38, height: 42, alignSelf: 'center' }}
+										/>
 									</NeomorphBox>
 								</View>
 								<View
@@ -149,38 +125,20 @@ export default class AboutPage extends React.Component {
 										swapShadowLevel
 										style={{
 											shadowRadius: 6,
-											borderRadius: 50,
+											borderRadius: 64,
 											backgroundColor: '#fff',
-											width: 69,
-											height: 69,
-											paddingTop: 15,
+											width: 64,
+											height: 64,
 											shadowOpacity: 0.2,
 											shadowRadius: 7,
 											justifyContent: 'center',
 											alignItems: 'center',
 										}}
-										darkShadowColor="#939498"
 									>
-										<NeomorphBox
-											inner
-											style={{
-												width: 65,
-												height: 65,
-												shadowOffset: { width: 3, height: 3 },
-												shadowOpacity: 0.1,
-												shadowColor: '#939498',
-												shadowRadius: 4,
-												borderRadius: 50,
-												backgroundColor: 'white',
-												marginBottom: 15,
-												justifyContent: 'center',
-											}}
-										>
-											<Image
-												source={require('../../assets/icons/icon2.png')}
-												style={{ width: 32, height: 34, alignSelf: 'center' }}
-											/>
-										</NeomorphBox>
+										<Image
+											source={require('../../assets/icons/icon2.png')}
+											style={{ width: 32, height: 34, alignSelf: 'center' }}
+										/>
 									</NeomorphBox>
 								</View>
 								<View
@@ -222,38 +180,20 @@ export default class AboutPage extends React.Component {
 										swapShadowLevel
 										style={{
 											shadowRadius: 6,
-											borderRadius: 50,
+											borderRadius: 64,
 											backgroundColor: '#fff',
-											width: 69,
-											height: 69,
-											paddingTop: 15,
+											width: 64,
+											height: 64,
 											shadowOpacity: 0.2,
 											shadowRadius: 7,
 											justifyContent: 'center',
 											alignItems: 'center',
 										}}
-										darkShadowColor="#939498"
 									>
-										<NeomorphBox
-											inner
-											style={{
-												width: 65,
-												height: 65,
-												shadowOffset: { width: 3, height: 3 },
-												shadowOpacity: 0.1,
-												shadowColor: '#939498',
-												shadowRadius: 4,
-												borderRadius: 50,
-												backgroundColor: 'white',
-												marginBottom: 15,
-												justifyContent: 'center',
-											}}
-										>
-											<Image
-												source={require('../../assets/icons/icon3.png')}
-												style={{ width: 21, height: 34, alignSelf: 'center' }}
-											/>
-										</NeomorphBox>
+										<Image
+											source={require('../../assets/icons/icon3.png')}
+											style={{ width: 20, height: 34, alignSelf: 'center' }}
+										/>
 									</NeomorphBox>
 								</View>
 								<View

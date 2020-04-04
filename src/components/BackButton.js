@@ -4,7 +4,6 @@ import { NeomorphBox } from 'react-native-neomorph-shadows';
 
 export default class BackButton extends React.Component {
 	render() {
-		const { onPress, style, darkShadowColor } = this.props;
 
 		const neomorphStyle = {
 			shadowRadius: 6,
