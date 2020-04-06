@@ -1,25 +1,35 @@
 import * as React from 'react';
 import { View, Dimensions, SafeAreaView, Image, Text, ScrollView, TextInput, ImageBackground } from 'react-native';
+import { connect } from 'react-redux';
 import { NeomorphBox } from 'react-native-neomorph-shadows';
 import Header from '../components/Header';
 import Button from '../components/Button';
 import BackButton from '../components/BackButton';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
+import { woneyRequest } from '../core/state/woney/actions';
+import { getData, getSuccess, getWoneyError } from '../core/state/woney/selectors';
+
 const { width, height } = Dimensions.get('window');
 
-export default class CheckLoginPage extends React.Component {
+class CheckLoginPage extends React.Component {
 	state = {
 		email: '',
 	};
 
 	making_api_call = () => {
-		if (true) {
+		this.props.request(this.props.data);
+	};
+
+	componentDidUpdate(prevProps) {
+		if (this.props.success !== prevProps.success) {
 			this.props.navigation.navigate('SmilePage');
-		} else {
+		}
+		
+		if (this.props.error !== prevProps.error) {
 			this.props.navigation.navigate('SadPage');
 		}
-	};
+	}
 
 	render() {
 		return (
@@ -368,3 +378,11 @@ export default class CheckLoginPage extends React.Component {
 		);
 	}
 }
+
+export default connect(state => ({
+	data: getData(state),
+	success: getSuccess(state),
+	error: getWoneyError(state),
+}), (dispatch) => ({
+  request: (data) => dispatch(woneyRequest(data)),
+}))(CheckLoginPage);
