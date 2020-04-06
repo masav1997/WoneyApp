@@ -562,7 +562,8 @@ class LoginPage extends React.Component {
 														}}
 														placeholder={'Invalid email'}
 														placeholderTextColor={'#ff1944'}
-														onChange={value => this.setState({ email: value })}
+														onChangeText={value => this.setState({ email: value })}
+														value={this.state.email}
 													/>
 												</View>
 												<View style={{ flex: 1 }}>
@@ -618,7 +619,8 @@ class LoginPage extends React.Component {
 														}}
 														placeholder={'Email'}
 														placeholderTextColor={'#8f8f8f'}
-														onChange={value => this.setState({ email: value })}
+														onChangeText={value => this.setState({ email: value })}
+														value={this.state.email}
 													/>
 												</View>
 											</NeomorphBox>
@@ -689,7 +691,8 @@ class LoginPage extends React.Component {
 														}}
 														placeholder={'Wrong wallet'}
 														placeholderTextColor={'#ff1944'}
-														onChange={value => this.setState({ wallet: value })}
+														onChangeText={value => this.setState({ wallet: value })}
+														value={this.state.wallet}
 													/>
 												</View>
 												<View style={{ flex: 1 }}>
@@ -745,7 +748,8 @@ class LoginPage extends React.Component {
 														}}
 														placeholder={'Wallet'}
 														placeholderTextColor={'#8f8f8f'}
-														onChange={value => this.setState({ wallet: value })}
+														onChangeText={value => this.setState({ wallet: value })}
+														value={this.state.wallet}
 													/>
 												</View>
 											</NeomorphBox>
