@@ -1,3 +1,4 @@
+import FormData from 'form-data'
 import { call, put, all, takeLatest } from 'redux-saga/effects';
 
 import * as api from '../../api/woney';
@@ -14,11 +15,22 @@ function* woneyRequest_saga(action) {
 
   try {
     yield put({ type: WONEY_REQUEST_REQUEST });
-    const { data } = yield call(api.request, payload);
+    
+    const form = new FormData();
+    form.append('surname', payload.surname);
+    form.append('email', payload.email);
+    form.append('eth_wallet', payload.eth_wallet);
+    form.append('ticket', {
+      name: 'photo.png',
+      type: 'image/jpeg',
+      uri: Platform.OS === "android" ? payload.ticket : payload.ticket.replace("file://", "")});
+
+    const { data } = yield call(api.request, form);
 
     if (data.code !== 0) {
       throw new Error(data.message);
     }
+
 
     yield put({ type: WONEY_REQUEST_SUCCESS });
   } catch (error) {
