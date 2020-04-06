@@ -31,7 +31,10 @@ export default class LoginPage extends React.Component {
 		img: '',
 	};
 	validate_field = () => {
-		const { email, wallet, img } = this.state;
+		const { image, email, wallet, img } = this.state;
+		
+		console.log(this.state);
+
 		if (email == '' || wallet == '' || img == '') {
 			this.setState({ bool: 2 });
 			return false;
@@ -41,7 +44,7 @@ export default class LoginPage extends React.Component {
 		return true;
 	};
 
-	making_api_call = () => {
+	handle_page_change = () => {
 		if (this.validate_field()) {
 			this.props.navigation.navigate('CheckLoginPage');
 		}
@@ -788,9 +791,9 @@ export default class LoginPage extends React.Component {
 										</Text>
 									</View>
 								) : null}
-								{image && this.statewallet !== '' && this.state.email !== '' ? (
+								{(
 									<Button
-										onPress={() => this.making_api_call()}
+										onPress={this.handle_page_change}
 										style={{
 											borderRadius: 40,
 											backgroundColor: '#2eb827',
@@ -803,22 +806,6 @@ export default class LoginPage extends React.Component {
 											paddingRight: 30,
 										}}
 										darkShadowColor="#2eb827"
-									/>
-								) : (
-									<Button
-										onPress={() => this.making_api_call()}
-										style={{
-											borderRadius: 40,
-											backgroundColor: '#ff1944',
-											width: 60,
-											height: 60,
-											paddingTop: 20,
-											shadowOpacity: 0.6,
-											shadowRadius: 10,
-											paddingLeft: 30,
-											paddingRight: 30,
-										}}
-										darkShadowColor="#ff1944"
 									/>
 								)}
 							</ScrollView>

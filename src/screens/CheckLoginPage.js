@@ -12,6 +12,15 @@ export default class CheckLoginPage extends React.Component {
 	state = {
 		email: '',
 	};
+
+	making_api_call = () => {
+		if (true) {
+			this.props.navigation.navigate('SmilePage');
+		} else {
+			this.props.navigation.navigate('SadPage');
+		}
+	};
+
 	render() {
 		return (
 			<View style={{ flex: 1, alignItems: 'center' }}>
@@ -337,7 +346,7 @@ export default class CheckLoginPage extends React.Component {
 									</Text>
 								</TouchableOpacity>
 								<Button
-									onPress={() => this.props.navigation.navigate('SmilePage')}
+									onPress={this.making_api_call}
 									style={{
 										borderRadius: 40,
 										backgroundColor: '#2eb827',
