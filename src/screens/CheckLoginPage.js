@@ -209,7 +209,7 @@ class CheckLoginPage extends React.Component {
 														marginLeft: 15,
 														fontWeight: 'bold',
 													}}
-													placeholder={'Sample@gmail.com'}
+													placeholder={this.props.data.email}
 													placeholderTextColor={'#000'}
 													editable={false}
 												/>
@@ -269,7 +269,7 @@ class CheckLoginPage extends React.Component {
 														marginLeft: 15,
 														fontWeight: 'bold',
 													}}
-													placeholder={'fhei593kfub8372hfbtic9ejfgy75bcks946fgehj'}
+													placeholder={this.props.data.eth_wallet}
 													placeholderTextColor={'#000'}
 													editable={false}
 												/>
