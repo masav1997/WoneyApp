@@ -1,7 +1,7 @@
 import { handleActions } from 'redux-actions';
 
 import {
-  WONEY_UPDATE_FORM_DATA,
+  WONEY_UPDATE_DATA,
   WONEY_REQUEST_REQUEST,
   WONEY_REQUEST_SUCCESS,
   WONEY_REQUEST_FAILURE,
@@ -9,7 +9,7 @@ import {
 
 const reducer = handleActions(
   {
-    [WONEY_UPDATE_FORM_DATA]: (state, action) => ({
+    [WONEY_UPDATE_DATA]: (state, action) => ({
       ...state,
       data: action.payload,
     }),
