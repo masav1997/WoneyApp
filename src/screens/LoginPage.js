@@ -35,8 +35,6 @@ class LoginPage extends React.Component {
 	};
 	validate_field = () => {
 		const { image, email, wallet, img } = this.state;
-		
-		console.log(this.state);
 
 		if (email == '' || wallet == '' || img == '') {
 			this.setState({ bool: 2 });
