@@ -11,6 +11,7 @@ import {
 	ImageBackground,
 	Alert,
 } from 'react-native';
+import { connect } from 'react-redux';
 import * as ImagePicker from 'expo-image-picker';
 import { NeomorphBox } from 'react-native-neomorph-shadows';
 import Header from '../components/Header';
@@ -19,9 +20,11 @@ import Constants from 'expo-constants';
 import * as Permissions from 'expo-permissions';
 import CheckLoginPage from './CheckLoginPage';
 
+import { woneyUpdateData } from '../core/state/woney/actions';
+
 const { width, height } = Dimensions.get('window');
 
-export default class LoginPage extends React.Component {
+class LoginPage extends React.Component {
 	state = {
 		image: null,
 		bool: 1,
@@ -45,10 +48,12 @@ export default class LoginPage extends React.Component {
 	};
 
 	handle_page_change = () => {
-		if (this.validate_field()) {
-			this.props.navigation.navigate('CheckLoginPage');
-		}
-	};
+    if (this.validate_field()) {
+      const { email, wallet: eth_wallet, image: ticket } = this.state;
+      this.props.updateData({ email, eth_wallet, ticket });
+      this.props.navigation.navigate('CheckLoginPage');
+    }
+  };
 	render() {
 		let { image } = this.state;
 
@@ -858,3 +863,7 @@ export default class LoginPage extends React.Component {
 		}
 	};
 }
+
+export default connect(null, (dispatch) => ({
+  updateData: (data) => dispatch(woneyUpdateData(data)),
+}))(LoginPage);
