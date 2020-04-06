@@ -15,11 +15,13 @@ function* woneyRequest_saga(action) {
   try {
     yield put({ type: WONEY_REQUEST_REQUEST });
     const { data } = yield call(api.request, payload);
-    console.log('RESPONSE: ', data);
+
+    if (data.code !== 0) {
+      throw new Error(data.message);
+    }
 
     yield put({ type: WONEY_REQUEST_SUCCESS });
   } catch (error) {
-    console.log('ERROR', error);
     yield put({ type: WONEY_REQUEST_FAILURE, payload: error });
   }
 }
