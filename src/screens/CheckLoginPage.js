@@ -124,7 +124,7 @@ class CheckLoginPage extends React.Component {
 										}}
 									>
 										<ImageBackground
-											source={require('../../assets/icons/img.png')}
+											source={{uri:this.props.data.ticket}}
 											style={{ width: 150, height: 150 }}
 											imageStyle={{
 												alignSelf: 'center',
