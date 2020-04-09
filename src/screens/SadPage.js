@@ -12,6 +12,10 @@ const { width, height } = Dimensions.get('window');
 
 class SadPage extends React.Component {
 	getErrorMessage = error => {
+		if (!error) {
+			return '';
+		}
+
 		switch (error.code) {
 			case 101:
 				return 'Your Ethereum address is invalid, please resubmit your request with the valid Ethereum address. Check out our FAQ to find out more.';
