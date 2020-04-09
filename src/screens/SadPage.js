@@ -178,7 +178,7 @@ class SadPage extends React.Component {
 									</Text>
 								</View>
 								<ButtonLeft
-									onPress={() => this.props.navigation.navigate('SmilePage')}
+									onPress={() => this.props.navigation.navigate('LoginPage')}
 									style={{
 										borderRadius: 40,
 										backgroundColor: '#f51b4a',
