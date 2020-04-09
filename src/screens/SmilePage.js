@@ -106,7 +106,9 @@ export default class SmilePage extends React.Component {
 											textAlign: 'center',
 										}}
 									>
-										Your application has been successfully confirmed!
+										Your request has been successfully confirmed! Please allow
+                    up to five business days to get Woney. You will receive a
+                    confirmation email.
 									</Text>
 								</View>
 								<View
