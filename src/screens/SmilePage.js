@@ -142,7 +142,7 @@ export default class SmilePage extends React.Component {
 									</Text>
 								</View>
 								<ButtonLeft
-									onPress={() => this.props.navigation.navigate('SadPage')}
+									onPress={() => this.props.navigation.navigate('LoginPage')}
 									style={{
 										borderRadius: 40,
 										backgroundColor: '#2eb827',
