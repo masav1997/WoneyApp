@@ -28,13 +28,12 @@ function* woneyRequest_saga(action) {
     const { data } = yield call(api.request, form);
 
     if (data.code !== 0) {
-      throw new Error(data.message);
+      yield put({ type: WONEY_REQUEST_FAILURE, payload: data });
+    } else {
+      yield put({ type: WONEY_REQUEST_SUCCESS });
     }
-
-
-    yield put({ type: WONEY_REQUEST_SUCCESS });
   } catch (error) {
-    yield put({ type: WONEY_REQUEST_FAILURE, payload: error });
+    yield put({ type: WONEY_REQUEST_FAILURE, payload: { message: 'Something went wrong'} });
   }
 }
 

@@ -1,13 +1,51 @@
 import * as React from 'react';
+import { connect } from 'react-redux';
 import { View, Dimensions, SafeAreaView, Image, Text, ScrollView } from 'react-native';
 import { NeomorphBox } from 'react-native-neomorph-shadows';
 import Header from '../components/Header';
 import ButtonLeft from '../components/ButtonLeft';
 import BackButton from '../components/BackButton';
 
+import { getWoneyError } from '../core/state/woney/selectors';
+
 const { width, height } = Dimensions.get('window');
 
-export default class SadPage extends React.Component {
+class SadPage extends React.Component {
+	getErrorMessage = error => {
+		switch (error.code) {
+			case 101:
+				return 'Your Ethereum address is invalid, please resubmit your request with the valid Ethereum address. Check out our FAQ to find out more.';
+			case 102:
+				return 'Your Email address is invalid, please resubmit your request with the valid Email address. Check out our FAQ to find out more.';
+			case 103:
+			case 104:
+			case 201:
+				return 'The barcode of your boarding pass must be clearly visible. Please resubmit your request with the higher image quality. Check out our FAQ to find out more.';
+			case 202:
+				return 'Our service is currently unavailable. Please resubmit your request later. Check out our FAQ to find out more.';
+			case 301:
+				return 'Woney Tokens have already been issued for your ticket. You can\'t use it twice. Check out our FAQ to find out more.';
+			case 302:
+				return 'Your ticket has been expired or invalid. Check out our FAQ to find out more.';
+			default:
+				return (<React.Fragment>
+					Please check the form data or contact the support{' '}
+					<Text
+						style={{
+							fontSize: 14,
+							fontWeight: '400',
+							color: '#f51b4a',
+							lineHeight: 24,
+							textAlign: 'center',
+							textDecorationLine: 'underline',
+						}}
+					>
+						website.com
+					</Text>
+				</React.Fragment>);
+		}
+	};
+
 	render() {
 		return (
 			<View style={{ flex: 1, alignItems: 'center' }}>
@@ -106,7 +144,7 @@ export default class SadPage extends React.Component {
 											textAlign: 'center',
 										}}
 									>
-										Sorry, your application has not been confirmed
+										We're sorry. Your request has been denied. 
 									</Text>
 								</View>
 								<View
@@ -136,19 +174,7 @@ export default class SadPage extends React.Component {
 											textAlign: 'center',
 										}}
 									>
-										Please check the form data or contact the support{' '}
-										<Text
-											style={{
-												fontSize: 14,
-												fontWeight: '400',
-												color: '#f51b4a',
-												lineHeight: 24,
-												textAlign: 'center',
-												textDecorationLine: 'underline',
-											}}
-										>
-											website.com
-										</Text>
+										{this.getErrorMessage(this.props.error)}	
 									</Text>
 								</View>
 								<ButtonLeft
@@ -174,3 +200,7 @@ export default class SadPage extends React.Component {
 		);
 	}
 }
+
+export default connect(state => ({
+	error: getWoneyError(state),
+}))(SadPage);
