@@ -98,7 +98,7 @@ class CheckLoginPage extends React.Component {
 											textAlign: 'center',
 										}}
 									>
-										Please check and confirm the information.
+										Please check and confirm your details.
 									</Text>
 								</View>
 								<View

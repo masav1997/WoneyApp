@@ -128,7 +128,7 @@ export default class Header extends React.Component {
 										textAlign: 'left',
 									}}
 								>
-									Go to website
+									How does it work
 								</Text>
 							</View>
 						</TouchableOpacity>
@@ -184,7 +184,7 @@ export default class Header extends React.Component {
 										textAlign: 'left',
 									}}
 								>
-									About Woney
+									Woney.com
 								</Text>
 							</View>
 						</TouchableOpacity>

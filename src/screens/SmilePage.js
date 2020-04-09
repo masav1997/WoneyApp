@@ -106,9 +106,7 @@ export default class SmilePage extends React.Component {
 											textAlign: 'center',
 										}}
 									>
-										Your request has been successfully confirmed! Please allow
-                    up to five business days to get Woney. You will receive a
-                    confirmation email.
+										Your request has been successfully confirmed!
 									</Text>
 								</View>
 								<View
@@ -138,7 +136,7 @@ export default class SmilePage extends React.Component {
 											textAlign: 'center',
 										}}
 									>
-										Please allow up to three days to get bonuses.
+										Please allow up to five business days to get Woney. You will receive a confirmation email.
 									</Text>
 								</View>
 								<ButtonLeft

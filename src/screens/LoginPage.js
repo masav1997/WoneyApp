@@ -175,17 +175,7 @@ class LoginPage extends React.Component {
 											color: '#fff',
 										}}
 									>
-										<Text
-											style={{
-												textAlign: 'center',
-												fontSize: 12,
-												fontWeight: 'bold',
-												color: '#fff',
-											}}
-										>
-											Photo
-										</Text>{' '}
-										not uploaded. Please try again.
+										Can´t upload image. Please try again. 
 									</Text>
 								</View>
 							</View>
@@ -279,17 +269,7 @@ class LoginPage extends React.Component {
 											color: '#fff',
 										}}
 									>
-										<Text
-											style={{
-												textAlign: 'center',
-												fontSize: 12,
-												fontWeight: 'bold',
-												color: '#fff',
-											}}
-										>
-											Photo
-										</Text>{' '}
-										uploaded successfully
+										Image uploaded successfully. 
 									</Text>
 								</View>
 							</View>
@@ -429,28 +409,7 @@ class LoginPage extends React.Component {
 											color: '#fff',
 										}}
 									>
-										<Text
-											style={{
-												textAlign: 'center',
-												fontSize: 12,
-												fontWeight: 'bold',
-												color: '#fff',
-											}}
-										>
-											Take a photo
-										</Text>{' '}
-										of your boarding pass, or{' '}
-										<Text
-											style={{
-												textAlign: 'center',
-												fontSize: 12,
-												fontWeight: 'bold',
-												color: '#fff',
-											}}
-										>
-											upload
-										</Text>{' '}
-										a screenshot of the online pass.
+										Take a picture or upload your boarding pass or a screenshot of your online boarding pass.  
 									</Text>
 								</View>
 							</View>
@@ -489,7 +448,7 @@ class LoginPage extends React.Component {
 											color: '#000',
 										}}
 									>
-										Personal information
+										Enter your details
 									</Text>
 									<Image
 										source={require('../../assets/icons/arrow.png')}
@@ -615,7 +574,7 @@ class LoginPage extends React.Component {
 															marginLeft: 15,
 															fontWeight: 'bold',
 														}}
-														placeholder={'Email'}
+														placeholder={'Your Email'}
 														placeholderTextColor={'#8f8f8f'}
 														onChangeText={value => this.setState({ email: value })}
 														value={this.state.email}
@@ -744,7 +703,7 @@ class LoginPage extends React.Component {
 															marginLeft: 15,
 															fontWeight: 'bold',
 														}}
-														placeholder={'Wallet'}
+														placeholder={'Ethereum Wallet Public Address'}
 														placeholderTextColor={'#8f8f8f'}
 														onChangeText={value => this.setState({ wallet: value })}
 														value={this.state.wallet}
@@ -768,7 +727,7 @@ class LoginPage extends React.Component {
 											color: '#8f8f8f',
 										}}
 									>
-										We will send you ONE time message.
+										We use your data to deposit Woney Tokens. We don't store or share your details with anyone.
 									</Text>
 								</View>
 								{this.state.bool == 2 && this.state.img == '' ? (

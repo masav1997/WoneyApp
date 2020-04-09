@@ -110,7 +110,7 @@ export default class AboutPage extends React.Component {
 												textAlign: 'left',
 											}}
 										>
-											Take a photo of your boarding pass, or take a screenshot of the online pass.
+											Take a picture of your boarding pass or upload your online boarding pass.
 										</Text>
 									</View>
 								</View>
@@ -165,7 +165,7 @@ export default class AboutPage extends React.Component {
 												textAlign: 'left',
 											}}
 										>
-											Upload a photo, enter your email address and your public crypto wallet.
+											Upload your boarding pass, enter your email address and your public Ethereum wallet address.
 										</Text>
 									</View>
 								</View>
@@ -220,7 +220,7 @@ export default class AboutPage extends React.Component {
 												textAlign: 'left',
 											}}
 										>
-											Wait for the confirmation and get your bonuses.
+											Wait for the confirmation email and get your Woney.
 										</Text>
 									</View>
 								</View>
