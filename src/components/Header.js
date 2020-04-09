@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TouchableOpacity, Image, Dimensions, Text } from 'react-native';
+import { View, TouchableOpacity, Linking, Image, Dimensions, Text } from 'react-native';
 import { NeomorphBox } from 'react-native-neomorph-shadows';
 import Modal from 'react-native-modal';
 const { width, height } = Dimensions.get('window');
@@ -8,6 +8,16 @@ export default class Header extends React.Component {
 	state = {
 		isModalVisible: false,
 	};
+
+	handleUrlOpen = (url) => {
+    Linking.canOpenURL(url).then(supported => {
+      if (supported) {
+        Linking.openURL(url);
+      } else {
+        console.log("Can't open URI: " + url);
+      }
+    });
+  };
 
 	toggleModal = () => {
 		this.setState({ isModalVisible: !this.state.isModalVisible });
@@ -112,6 +122,8 @@ export default class Header extends React.Component {
 								marginTop: 10,
 								alignSelf: 'center',
 							}}
+							onPress={navigate}
+							onPressOut={this.toggleModal}
 						>
 							<View style={{ flex: 1 }}>
 								<Image
@@ -139,6 +151,7 @@ export default class Header extends React.Component {
 								marginTop: 10,
 								alignSelf: 'center',
 							}}
+							onPressOut={() => this.handleUrlOpen('https://woney.com/contact.html')}
 						>
 							<View style={{ flex: 1 }}>
 								<Image
@@ -166,8 +179,7 @@ export default class Header extends React.Component {
 								marginTop: 10,
 								alignSelf: 'center',
 							}}
-							onPress={navigate}
-							onPressOut={this.toggleModal}
+							onPressOut={() => this.handleUrlOpen('https://woney.com')}
 						>
 							<View style={{ flex: 1 }}>
 								<Image
