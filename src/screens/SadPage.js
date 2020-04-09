@@ -33,19 +33,7 @@ class SadPage extends React.Component {
 				return 'Your ticket has been expired or invalid. Check out our FAQ to find out more.';
 			default:
 				return (<React.Fragment>
-					Please check the form data or contact the support{' '}
-					<Text
-						style={{
-							fontSize: 14,
-							fontWeight: '400',
-							color: '#f51b4a',
-							lineHeight: 24,
-							textAlign: 'center',
-							textDecorationLine: 'underline',
-						}}
-					>
-						website.com
-					</Text>
+					No internet.
 				</React.Fragment>);
 		}
 	};
