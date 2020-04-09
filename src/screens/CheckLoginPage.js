@@ -23,9 +23,10 @@ class CheckLoginPage extends React.Component {
 
 	componentDidUpdate(prevProps) {
 		if (this.props.success !== prevProps.success) {
-			this.props.navigation.navigate('SmilePage');
+			if (this.props.success === 'true') {
+				this.props.navigation.navigate('SmilePage');
+			}
 		}
-		
 		if (this.props.error !== prevProps.error) {
 			this.props.navigation.navigate('SadPage');
 		}
