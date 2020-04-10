@@ -40,23 +40,17 @@ class CheckLoginPage extends React.Component {
 	componentDidUpdate(prevProps) {
 		if (this.props.success !== prevProps.success) {
 			if (this.props.success === 'true') {
-				setTimeout(() => {
-					this.setState({
-						//change the state of the laoding in every 3 second
-						showIndicator: false,
-					});
-				}, 0);
 				this.props.navigation.navigate('SmilePage');
+				this.setState({
+					showIndicator: false,
+				});
 			}
 		}
 		if (this.props.error !== prevProps.error) {
-			setTimeout(() => {
-				this.setState({
-					//change the state of the laoding in every 3 second
-					showIndicator: false,
-				});
-			}, 0);
 			this.props.navigation.navigate('SadPage');
+			this.setState({
+				showIndicator: false,
+			});
 		}
 	}
 
