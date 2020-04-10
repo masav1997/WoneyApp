@@ -39,7 +39,7 @@ class CheckLoginPage extends React.Component {
 
 	componentDidUpdate(prevProps) {
 		if (this.props.success !== prevProps.success) {
-			if (this.props.success === 'true') {
+			if (this.props.success === true) {
 				this.props.navigation.navigate('SmilePage');
 				this.setState({
 					showIndicator: false,
@@ -47,10 +47,12 @@ class CheckLoginPage extends React.Component {
 			}
 		}
 		if (this.props.error !== prevProps.error) {
-			this.props.navigation.navigate('SadPage');
-			this.setState({
-				showIndicator: false,
-			});
+      if (this.props.error) {
+        this.props.navigation.navigate('SadPage');
+        this.setState({
+          showIndicator: false,
+        });
+      }
 		}
 	}
 
