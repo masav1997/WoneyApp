@@ -514,7 +514,7 @@ class LoginPage extends React.Component {
 														style={{
 															fontSize: 14,
 															color: '#a8a8a8',
-															fontWeight: 'bold',
+															fontWeight: '500',
 															marginLeft: 15,
 														}}
 														placeholder={'Invalid email'}
@@ -572,7 +572,7 @@ class LoginPage extends React.Component {
 															fontSize: 14,
 															color: '#a8a8a8',
 															marginLeft: 15,
-															fontWeight: 'bold',
+															fontWeight: '500',
 														}}
 														placeholder={'Your Email'}
 														placeholderTextColor={'#8f8f8f'}
@@ -643,7 +643,7 @@ class LoginPage extends React.Component {
 														style={{
 															fontSize: 14,
 															color: '#a8a8a8',
-															fontWeight: 'bold',
+															fontWeight: '500',
 															marginLeft: 15,
 														}}
 														placeholder={'Wrong wallet'}
@@ -701,7 +701,7 @@ class LoginPage extends React.Component {
 															fontSize: 14,
 															color: '#a8a8a8',
 															marginLeft: 15,
-															fontWeight: 'bold',
+															fontWeight: '500',
 														}}
 														placeholder={'Ethereum Wallet Public Address'}
 														placeholderTextColor={'#8f8f8f'}
@@ -796,9 +796,8 @@ class LoginPage extends React.Component {
 
 	_pickImage = async () => {
 		let result = await ImagePicker.launchImageLibraryAsync({
-			mediaTypes: ImagePicker.MediaTypeOptions.All,
+			mediaTypes: ImagePicker.MediaTypeOptions.Images,
 			allowsEditing: true,
-			aspect: [4, 3],
 			quality: 1,
 		});
 
