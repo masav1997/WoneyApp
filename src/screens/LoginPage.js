@@ -21,6 +21,7 @@ import * as Permissions from 'expo-permissions';
 import CheckLoginPage from './CheckLoginPage';
 
 import { woneyUpdateData } from '../core/state/woney/actions';
+import { getSuccess, getWoneyError } from '../core/state/woney/selectors';
 
 const { width, height } = Dimensions.get('window');
 
@@ -51,7 +52,19 @@ class LoginPage extends React.Component {
       this.props.updateData({ email, eth_wallet, ticket });
       this.props.navigation.navigate('CheckLoginPage');
     }
-  };
+	};
+	
+	componentDidUpdate(prevProps) {
+		if (this.props.success !== prevProps.success) {
+			if (this.props.success === true) {
+				this.setState({
+					image: null,
+					img: '',
+				});
+			}
+		}
+	}
+
 	render() {
 		let { image } = this.state;
 
@@ -824,6 +837,12 @@ class LoginPage extends React.Component {
 	};
 }
 
-export default connect(null, (dispatch) => ({
-  updateData: (data) => dispatch(woneyUpdateData(data)),
-}))(LoginPage);
+export default connect(
+	(state) => ({
+		success: getSuccess(state),
+		error: getWoneyError(state),
+	}),
+	(dispatch) => ({
+  	updateData: (data) => dispatch(woneyUpdateData(data)),
+	})
+)(LoginPage);
