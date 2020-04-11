@@ -38,6 +38,16 @@ class CheckLoginPage extends React.Component {
 		this.props.request(this.props.data);
 	};
 
+	handleUrlOpen = (url) => {
+		Linking.canOpenURL(url).then((supported) => {
+			if (supported) {
+				Linking.openURL(url);
+			} else {
+				console.log("Can't open URI: " + url);
+			}
+		});
+	};
+
 	componentDidUpdate(prevProps) {
 		if (this.props.success !== prevProps.success) {
 			if (this.props.success === true) {
@@ -249,7 +259,7 @@ class CheckLoginPage extends React.Component {
 									<View
 										style={{
 											flexDirection: 'row',
-											marginBottom: 20,
+											marginBottom: 10,
 											alignItems: 'center',
 										}}
 									>
@@ -323,7 +333,7 @@ class CheckLoginPage extends React.Component {
 												}}
 												style={{
 													width: 65,
-													height: 60,
+													height: 70,
 												}}
 											>
 												<NeomorphBox
@@ -333,12 +343,15 @@ class CheckLoginPage extends React.Component {
 														shadowOffset: { width: 7, height: 7 },
 														shadowOpacity: 0.1,
 														shadowColor: 'grey',
-														shadowRadius: 6,
-														borderRadius: 3,
+														shadowRadius: 9,
+														borderRadius: 1,
 														backgroundColor: 'white',
 														alignItems: 'center',
+														left: 5,
+														top: 5,
 													}}
 													lightShadowColor="grey"
+													darkShadowColor="grey"
 												>
 													{this.state.email !== '' ? (
 														<Image
