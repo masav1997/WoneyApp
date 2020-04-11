@@ -32,9 +32,7 @@ class SadPage extends React.Component {
 			case 302:
 				return 'Your ticket has been expired or invalid. Check out our FAQ to find out more.';
 			default:
-				return (<React.Fragment>
-					No internet.
-				</React.Fragment>);
+				return 'Oops! No connection.';
 		}
 	};
 
