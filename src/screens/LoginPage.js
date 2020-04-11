@@ -810,7 +810,7 @@ class LoginPage extends React.Component {
 	_pickImage = async () => {
 		let result = await ImagePicker.launchImageLibraryAsync({
 			mediaTypes: ImagePicker.MediaTypeOptions.Images,
-			allowsEditing: true,
+			allowsEditing: false,
 			quality: 1,
 		});
 
@@ -826,8 +826,7 @@ class LoginPage extends React.Component {
 
 		if (cameraPerm === 'granted' && cameraRollPerm === 'granted') {
 			let pickerResult = await ImagePicker.launchCameraAsync({
-				allowsEditing: true,
-				aspect: [4, 3],
+				allowsEditing: false,
 			});
 
 			if (!pickerResult.cancelled) {

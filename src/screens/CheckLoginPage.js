@@ -10,6 +10,7 @@ import {
 	ImageBackground,
 	ActivityIndicator,
 	Modal,
+	Linking,
 } from 'react-native';
 import { connect } from 'react-redux';
 import { NeomorphBox } from 'react-native-neomorph-shadows';
@@ -47,19 +48,19 @@ class CheckLoginPage extends React.Component {
 			}
 		}
 		if (this.props.error !== prevProps.error) {
-      if (this.props.error) {
-        this.props.navigation.navigate('SadPage');
-        this.setState({
-          showIndicator: false,
-        });
-      }
+			if (this.props.error) {
+				this.props.navigation.navigate('SadPage');
+				this.setState({
+					showIndicator: false,
+				});
+			}
 		}
 	}
 
 	render() {
 		if (this.state.showIndicator) {
 			return (
-				<Modal transparent={true} animationType={'none'} >
+				<Modal transparent={true} animationType={'none'}>
 					<View
 						style={{
 							flex: 1,
@@ -305,91 +306,99 @@ class CheckLoginPage extends React.Component {
 											</NeomorphBox>
 										</NeomorphBox>
 									</View>
-									<TouchableOpacity
+									<View
 										style={{
 											flexDirection: 'row',
 											alignSelf: 'center',
-										}}
-										onPress={() => {
-											this.state.email === ''
-												? this.setState({ email: 'call' })
-												: this.setState({ email: '' });
-											this.setState({ check: !this.state.check });
+											alignItems: 'center',
 										}}
 									>
-										<NeomorphBox
-											style={{
-												width: 30,
-												height: 30,
-												shadowOffset: { width: 7, height: 7 },
-												shadowOpacity: 0.1,
-												shadowColor: 'grey',
-												shadowRadius: 6,
-												borderRadius: 3,
-												backgroundColor: 'white',
-												alignItems: 'center',
-												flex: 1,
-												top: 6,
-												marginRight: 5,
-											}}
-											lightShadowColor="grey"
-										>
-											{this.state.email !== '' ? (
-												<Image
-													source={require('../../assets/icons/check.png')}
+										<View style={{ flex: 1, top: 20 }}>
+											<TouchableOpacity
+												onPress={() => {
+													this.state.email === ''
+														? this.setState({ email: 'call' })
+														: this.setState({ email: '' });
+													this.setState({ check: !this.state.check });
+												}}
+												style={{
+													width: 65,
+													height: 60,
+												}}
+											>
+												<NeomorphBox
 													style={{
-														width: 12,
-														height: 10,
-														marginTop: 10,
-														tintColor: '#2eb827',
+														width: 25,
+														height: 25,
+														shadowOffset: { width: 7, height: 7 },
+														shadowOpacity: 0.1,
+														shadowColor: 'grey',
+														shadowRadius: 6,
+														borderRadius: 3,
+														backgroundColor: 'white',
+														alignItems: 'center',
 													}}
-												/>
-											) : null}
-										</NeomorphBox>
-										<Text
-											style={{
-												fontSize: 12,
-												fontWeight: '400',
-												color: '#000',
-												lineHeight: 20,
-												textAlign: 'left',
-												flex: 4,
-											}}
-										>
-											I agree to the{' '}
+													lightShadowColor="grey"
+												>
+													{this.state.email !== '' ? (
+														<Image
+															source={require('../../assets/icons/check.png')}
+															style={{
+																width: 12,
+																height: 10,
+																marginTop: 10,
+																tintColor: '#2eb827',
+															}}
+														/>
+													) : null}
+												</NeomorphBox>
+											</TouchableOpacity>
+										</View>
+										<View style={{ flex: 4 }}>
 											<Text
 												style={{
 													fontSize: 12,
 													fontWeight: '400',
-													color: '#e91945',
+													color: '#000',
 													lineHeight: 20,
 													textAlign: 'left',
-													textDecorationLine: 'underline',
-												}}
-												onPress={() => {
-													Linking.openURL('http://woney.com/terms.html');
 												}}
 											>
-												terms of service
-											</Text>{' '}
-											and{' '}
-											<Text
-												style={{
-													fontSize: 12,
-													fontWeight: '400',
-													color: '#e91945',
-													lineHeight: 20,
-													textAlign: 'left',
-													textDecorationLine: 'underline',
-												}}
-												onPress={() => {
-													Linking.openURL('http://woney.com/policy.html');
-												}}
-											>
-												privacy policy.
+												I agree to the{' '}
+												<Text
+													style={{
+														fontSize: 12,
+														fontWeight: '400',
+														color: '#e91945',
+														lineHeight: 20,
+														textAlign: 'left',
+														textDecorationLine: 'underline',
+													}}
+													onPress={() => {
+														Linking.openURL('http://woney.com/terms.html');
+													}}
+												>
+													terms of service
+												</Text>{' '}
+												and{' '}
+												<Text
+													style={{
+														fontSize: 12,
+														fontWeight: '400',
+														color: '#e91945',
+														lineHeight: 20,
+														textAlign: 'left',
+														textDecorationLine: 'underline',
+													}}
+													onPress={() => {
+														Linking.openURL('http://woney.com/policy.html');
+													}}
+												>
+													privacy policy.
+												</Text>
 											</Text>
-										</Text>
-									</TouchableOpacity>
+										</View>
+									</View>
 									{this.state.check == false ? (
 										<Button
 											style={{
