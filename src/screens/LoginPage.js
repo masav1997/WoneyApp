@@ -444,7 +444,7 @@ class LoginPage extends React.Component {
 							}}
 							swapShadowLevel
 						>
-							<ScrollView style={{ marginBottom: 150, flex: 1 }}>
+							<ScrollView style={{ marginBottom: 150, flex: 1 }} showsHorizontalScrollIndicator={false} showsVerticalScrollIndicator={false}>
 								<View
 									style={{
 										flexDirection: 'row',

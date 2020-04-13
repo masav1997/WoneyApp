@@ -57,7 +57,7 @@ export default class SmilePage extends React.Component {
 							}}
 							swapShadowLevel
 						>
-							<ScrollView style={{ flex: 1 }}>
+							<ScrollView style={{ flex: 1 }} showsHorizontalScrollIndicator={false} showsVerticalScrollIndicator={false}>
 								<View
 									style={{
 										flexDirection: 'row',
